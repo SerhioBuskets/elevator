@@ -5,12 +5,15 @@ public class Main {
 
         Elevator elevator = new Elevator(-25, 28);
 
-        while(true) {
+        while (true) {
             System.out.print("Введите номер этажа: ");
             int floor = new Scanner(System.in).nextInt();
-            elevator.move(floor);
+
+            try {
+                elevator.move(floor);
+            } catch (IllegalArgumentException e) {
+                System.out.print(e.getMessage());
+            }
         }
-
-
     }
 }
